@@ -13,4 +13,4 @@ export PATH="$R_ROOT/bin:$PATH"
 
 export R_LIBS_USER=/scratch/project_ID/user_ID/Rlibs/4.4.0
 
-Rscript /scratch/project_ID/user_ID/path/to/code/merge_mediation_results.R
+Rscript /scratch/project_ID/user_ID/path/to/code/C2_mediations_coeff_standardization_and_multibayes_correction.R
