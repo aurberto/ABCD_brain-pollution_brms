@@ -1,7 +1,5 @@
-# ------------------------------------------------------------------------------
 # MODEL COMPARISON
-# ------------------------------------------------------------------------------
-# Berto A. 05/2026
+# Berto Aurora (aurber@utu.fi) 05/2026
 
 # This code will run model comparison using LOO-CV and Bayesian stacking weights
 # between: null model, pollutant-only model, fully-adjusted model 
@@ -13,18 +11,15 @@
 # run_Rscripts.sh from the terminal.
 
 # --- Setup libraries for custom R ---------------------------------------------
-
 user_lib <- Sys.getenv("R_LIBS_USER")
 .libPaths(c(user_lib, .libPaths()[!grepl("r-env", .libPaths())]))
 print(.libPaths())
-Sys.setenv(TMPDIR = "/scratch/project_2006897/bertoaur/ABCD-brms_pollution/tmp")
+Sys.setenv(TMPDIR = "path/to/ABCD-brms_pollution/tmp")
 
 # --- Parallel options ---------------------------------------------------------
-
 options(mc.cores = as.numeric(Sys.getenv("SLURM_CPUS_PER_TASK")), scipen = 100000)
 
 # --- Load packages ------------------------------------------------------------
-
 library(dplyr)
 library(stringr)
 library(knitr)
@@ -33,7 +28,6 @@ library(loo)
 library(rlang)
 
 # --- Load data and set paths --------------------------------------------------
-
 models_path <- "/path/results/connectome/metric"
 summary_path <- "/path/results/connectome/metric/model_comparison"
 
@@ -52,7 +46,6 @@ fit4 <- readRDS(file.path(models_path,
                           paste0(metric, "_", pollutant, "_fit6_mod_current.RDS")))
 
 # --- Model comparison - prenatal ----------------------------------------------
-
 looList <- list(fit0 = loo(fit0), fit1 = loo(fit1), fit3 = loo(fit3))
 W <- loo_model_weights(looList)
 
