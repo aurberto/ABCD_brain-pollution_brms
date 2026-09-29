@@ -1,6 +1,6 @@
 # ABCD_brain-pollution_brms
 
-Code accompanying the manuscript **"Air pollution and neighbourhood disadvantage jointly shape functional brain organization in preadolescence"**.
+Code accompanying the manuscript **"Socioeconomic disadvantage moderates the association between air pollution and functional brain organization in late childhood"**.
 
 Complementary analyses related to functional brain organization processing (Functional Connectivity Harmonics, FCH, and Leading Eigenvector Dynamics Analysis, LEiDA) are available at: [https://github.com/isawig/ABCD_brain-dynamics_analyses](https://github.com/isawig/ABCD_brain-dynamics_analyses).
 
@@ -30,11 +30,15 @@ Contains all Bayesian regression models evaluating the associations between air 
 
 The `linear_models` folder includes scripts for all combinations of pollutants and brain metrics, together with scripts for model comparison using Leave-One-Out Cross-Validation (LOO-CV) and Bayesian stacking weights. Analyses are designed to be run on an **HPC** using the corresponding `.sh` scripts.
 
+The last code performs beta regression coefficients standardisation and correction for multiple comparisons using the R package multibayes. This last script is intended to be run **locally**, after having downloaded all the best-performing models returned from model-comparison.
+
 ### `C_exp_mediations`
 
 Contains the scripts used for the exploratory mediation analyses.
 
-The `mediation_models` folder includes mediation models for both prenatal and late-childhood exposure windows, together with scripts for aggregating significant mediation results. Analyses are designed to be run on an **HPC** using the corresponding `.sh` scripts.
+The `mediation_models` folder includes mediation models for both prenatal and late-childhood exposure windows. Analyses are designed to be run on an **HPC** using the corresponding `.sh` scripts.
+
+The last code performs beta regression coefficients standardisation and correction for multiple comparisons using the R package multibayes. This last script is intended to be run on an **HPC**, after having run all the mediation models.
 
 ### `D_results_visualization`
 
